@@ -4,8 +4,6 @@ const butInstall = document.getElementById('buttonInstall');
 // TODO: Add an event handler to the `beforeinstallprompt` event
 window.addEventListener('beforeinstallprompt', (event) => {
     console.log('beforeinstallprompt fired');
-    // Prevent Chrome 67 and earlier from automatically showing the prompt
-    event.preventDefault();
     // Stash the event so it can be triggered later.
     window.deferredPrompt = event;
     // Show the install button
@@ -21,9 +19,6 @@ butInstall.addEventListener('click', async () => {
     }
     // Show the install prompt
     promptEvent.prompt();
-    // Wait for the user to respond to the prompt
-    const choiceResult = await promptEvent.userChoice;
-    console.log(choiceResult);
     // We no longer need the prompt. Clear it up
     window.deferredPrompt = null;
     // Hide the install button
@@ -35,6 +30,4 @@ window.addEventListener('appinstalled', (event) => {
     console.log('appinstalled fired', event);
     // Clear the deferredPrompt
     window.deferredPrompt = null;
-    // Hide the install button
-    butInstall.classList.toggle('hidden', true);
 });

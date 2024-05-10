@@ -4,22 +4,17 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start:dev": "",
-    "start": "",
-    "server": "",
-    "build": "",
-    "install": "",
-    "client": ""
+    "server": "nodemon server.js --ignore client",
+    "build": "webpack --mode production"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
-    "express": "^4.19.2",
-    "if-env": "^1.0.4"
+    "express": "^4.19.2"
+    
   },
   "devDependencies": {
-    "concurrently": "^5.2.0",
     "nodemon": "^2.0.4",
     "webpack": "^5.91.0"
   }

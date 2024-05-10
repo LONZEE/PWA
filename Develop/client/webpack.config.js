@@ -4,8 +4,8 @@ const path = require('path');
 const { InjectManifest } = require('workbox-webpack-plugin');
 
 
-module.exports = () => {    
-  return {    
+module.exports = () => {
+  return {
     mode: 'development',
     entry: {
       main: './src/js/index.js',
@@ -16,34 +16,32 @@ module.exports = () => {
       path: path.resolve(__dirname, 'dist'),
     },
     plugins: [
-      new HtmlWebpackPlugin({     
+      new HtmlWebpackPlugin({
         template: './index.html',
-        title: 'J.A.T.E.',
+      }),
+      new InjectManifest({
+        swSrc: './src-sw.js',
+        swDest: 'src-sw.js',
       }),
       new WebpackPwaManifest({
         fingerprints: false,
         inject: true,
-        name: 'Just Another Text Editor',
-        short_name: 'JATE',
-        description: 'Just another text editor',
+        name: "Just Another Text Editor",
+        short_name: "JATE",
+        description: "Text Editor with offline capabilities using IndexedDB",
         background_color: '#225ca3',
         theme_color: '#225ca3',
-        start_url: '/',
+        start_url: './',
+        publicPath: './',
         icons: [
           {
             src: path.resolve('src/images/logo.png'),
             sizes: [96, 128, 192, 256, 384, 512],
-            destination: path.join('assets','icons'),
+            destination: path.join('assets', 'icons'),
           },
         ],
       }),
-      new InjectManifest({
-        swSrc: './src/sw.js',
-        swDest: 'src-sw.js',
-      }),
-      
     ],
-
     module: {
       rules: [
         {
@@ -61,7 +59,6 @@ module.exports = () => {
             },
           },
         },
-        
       ],
     },
   };
