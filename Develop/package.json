@@ -7,10 +7,10 @@
     "start": "concurrently \"npm run server\" \"npm run client\"",
     "dev": "webpack-dev-server",
     "server": "node server/server.js",
+    "client": "webpack --config client/webpack.config.js --watch",
     "build:client": "cd client && npm run build",
     "install:client": "cd client && npm install",
-    "install:server": "cd server && npm install",
-    "client": "cd client && npm start"
+    "install:server": "cd server && npm install"
     
   },
   "keywords": [],
