@@ -26,8 +26,8 @@ module.exports = () => {
       new WebpackPwaManifest({
         fingerprints: false,
         inject: true,
-        name: "Just Another Text Editor",
-        short_name: "JATE",
+        name: "PWA Text Editor",
+        short_name: "J.A.T.E.",
         description: "Text Editor with offline capabilities using IndexedDB",
         background_color: '#225ca3',
         theme_color: '#225ca3',
