@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "start": "npm run server",
     "dev": "webpack-dev-server",
     "server": "node server/server.js",
     "client": "webpack --config client/webpack.config.js --watch",
