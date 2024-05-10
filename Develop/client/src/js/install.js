@@ -1,3 +1,5 @@
+const e = require("express");
+
 const butInstall = document.getElementById('buttonInstall');
 
 // Logic for installing the PWA
@@ -5,6 +7,7 @@ const butInstall = document.getElementById('buttonInstall');
 window.addEventListener('beforeinstallprompt', (event) => {
     console.log('beforeinstallprompt fired');
     // Stash the event so it can be triggered later.
+        event.preventDefault();
     window.deferredPrompt = event;
     // Show the install button
     butInstall.classList.toggle('hidden', false);
